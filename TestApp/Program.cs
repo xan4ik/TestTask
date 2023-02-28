@@ -4,14 +4,11 @@ var testArr2 = new string[] { "ток", "рост", "КОТ", "торс", "со�
 var testArr3 = new string[] { "абв", "ваб", "ОООТ", "фыв", "Кто", "фывап", "рок", "ТоК" };
 
 
-var result = SortStrings(testArr1);
+
 Display(SortStrings(testArr1));
-
-result = SortStrings(testArr2);
 Display(SortStrings(testArr2));
-
-result = SortStrings(testArr3);
 Display(SortStrings(testArr3));
+
 
 
 static void Display(IEnumerable<IEnumerable<string>> strings) 
