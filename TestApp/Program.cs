@@ -1,7 +1,7 @@
 ﻿
-var testArr1 = new string[] { "ток", "рост", "кот", "торс", "Кто", "фывап", "рок" };
+var testArr1 = new string[] { "торс", "Кто", "фывап", "рок", "ток", "рост", "кот" };
 var testArr2 = new string[] { "ток", "рост", "КОТ", "торс", "сорт", "Кто", "фывап", "рок" };
-var testArr3 = new string[] { "абв", "ваб", "ОООТ", "фыв", "Кто", "фывап", "рок" };
+var testArr3 = new string[] { "абв", "ваб", "ОООТ", "фыв", "Кто", "фывап", "рок", "ТоК" };
 
 
 var result = SortStrings(testArr1);
@@ -29,13 +29,9 @@ static void Display(IEnumerable<IEnumerable<string>> strings)
 
 static IEnumerable<IEnumerable<string>> SortStrings(IEnumerable<string> strings) 
 {
-    int ConvertToInt(string value)
-    {
-        var norm = value.ToLower();
-        return norm.AsEnumerable().Select(x => (int)x).Sum();
-    }
-
-    return strings.GroupBy(ConvertToInt).Select(x => x.AsEnumerable());
+    return strings
+        .GroupBy(x => x.ToLower().Sum(x => (int)x))
+        .Select(x => x.AsEnumerable());
 }
 
 
